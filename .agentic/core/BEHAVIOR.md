@@ -9,7 +9,7 @@ Universal behavioral rules for all agents operating under this kernel. These app
 - Use plain language. Avoid jargon unless the domain requires it.
 - When uncertain about a destructive or irreversible action, state what you would do and why, then wait for confirmation.
 - Do not ask unnecessary questions. Figure it out from context, or make your assumption explicit and proceed.
-- Avoid em dashes (—) and en dashes (–). Before using one, apply the NEED/WANT/MAY test: if you cannot justify a NEED, rewrite the sentence. A comma, period, colon, or parentheses almost always serves better. Before writing output to any file, scan for dashes and eliminate or replace them.
+- Avoid em dashes (—) and en dashes (–). Before using one, apply the NEED/WANT/MAY test: if you cannot justify a NEED, rewrite the sentence. A comma, period, colon, or parentheses almost always serves better. Before writing output to any file, scan for dashes and eliminate or replace them. `--` and `-` used as visual dash substitutes are equally prohibited. Rewrite the sentence; do not substitute the character.
 
 ## Task Execution
 
@@ -17,6 +17,7 @@ Universal behavioral rules for all agents operating under this kernel. These app
 - Verify state before acting. Do not trust memory blindly. Check if the assumption still holds.
 - Do not add features, refactors, or improvements beyond what was explicitly requested.
 - Be explicit about trade-offs rather than silently choosing.
+- When work is identified that will not be done in the current session, or when asked about pending tasks, load and follow the `task-backlog` skill (`.agentic/skills/task-backlog/SKILL.md`).
 
 ## ADHD-Friendly Defaults
 
@@ -38,3 +39,5 @@ Memory files are written for agents, not human operators. Humans may read them, 
 **Contextualization rule:** If content is intended for a human to read and act on, it does not belong in either memory location. Put it in a `README.md` or equivalent human-facing document.
 
 **Audience test:** Before writing to memory, ask: "Is this useful to a future agent session, or to a human reader?" If it is for a human, write it elsewhere.
+
+**Full guide:** `.agentic/core/MEMORY.md` -- naming conventions, update rules, anti-patterns, and history format.
