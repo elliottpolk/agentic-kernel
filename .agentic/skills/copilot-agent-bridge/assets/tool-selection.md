@@ -5,19 +5,19 @@ Use the agent's **Scope** field to determine the appropriate tool set. Select th
 ## Read-only agents
 For agents that only read, analyse, navigate, or answer questions (no file writes, no code execution):
 ```
-["search", "fetch", "githubRepo", "usages", "semantic_search", "read_file", "grep_search"]
+[vscode, read/readFile, browser, search, web, todo]
 ```
 
 ## Read + write agents
 For agents that create or modify files as part of their core responsibilities:
 ```
-["search", "fetch", "githubRepo", "usages", "semantic_search", "read_file", "grep_search", "replace_string_in_file", "multi_replace_string_in_file", "create_file"]
+[vscode, read/readFile, browser, edit, search, web, todo]
 ```
 
 ## Read + write + execute agents
 For agents that also run commands, tasks, or tests:
 ```
-["search", "fetch", "githubRepo", "usages", "semantic_search", "read_file", "grep_search", "replace_string_in_file", "multi_replace_string_in_file", "create_file", "run_in_terminal", "get_errors"]
+[vscode, execute, read/readFile, agent, browser, edit, search, web, todo]
 ```
 
 ## Decision rule
