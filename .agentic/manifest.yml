@@ -1,0 +1,34 @@
+# Agentic Kernel Manifest
+# Registry of all active components in this agentic system.
+# This file is mutable. Update it when components are added, removed, or changed.
+# AGENTS.md is the immutable kernel; this file is the contextual registry.
+
+version: "1.0"
+
+project:
+  name: ""
+  description: ""
+  context: .agentic/memories/state/project.md
+
+core:
+  behavior: .agentic/core/BEHAVIOR.md
+  decisions: .agentic/core/DECISIONS.md
+
+agents:
+  - name: kernel
+    description: Authoritative guide for the agentic kernel system. Answers questions about structure, state, and evolution. Routes to other agents when appropriate.
+    path: .agentic/agents/kernel
+  - name: agent-foundry
+    description: Designs and scaffolds new agents. Produces a complete, registered agent directory from requirements.
+    path: .agentic/agents/agent-foundry
+
+workflows: []
+
+skills:
+  - name: copilot-agent-bridge
+    description: Generates a GitHub Copilot .agent.md wrapper from an agent's IDENTITY.md. Use to make any .agentic agent available in GitHub Copilot Chat.
+    path: .agentic/skills/copilot-agent-bridge
+
+memories:
+  state: .agentic/memories/state
+  history: .agentic/memories/history
