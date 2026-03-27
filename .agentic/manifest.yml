@@ -13,6 +13,7 @@ project:
 core:
   behavior: .agentic/core/BEHAVIOR.md
   decisions: .agentic/core/DECISIONS.md
+  memory: .agentic/core/MEMORY.md
 
 agents:
   - name: kernel
@@ -28,6 +29,15 @@ skills:
   - name: copilot-agent-bridge
     description: Generates a GitHub Copilot .agent.md wrapper from an agent's IDENTITY.md. Use to make any .agentic agent available in GitHub Copilot Chat.
     path: .agentic/skills/copilot-agent-bridge
+  - name: claude-agent-bridge
+    description: Generates a Claude skill file from a .agentic agent's IDENTITY.md. Use to make any .agentic agent available in Claude Code or Cowork.
+    path: .agentic/skills/claude-agent-bridge
+  - name: create-skill
+    description: Create a new agent skill following the agentskills.io specification. Use when asked to create a new skill, add a skill to this workspace, or package agent instructions as a reusable, shareable skill.
+    path: .agentic/skills/create-skill
+  - name: task-backlog
+    description: Cross-agent task capture and execution protocol. Use when identifying work to defer during an active session, or when asked to list or work through pending tasks.
+    path: .agentic/skills/task-backlog
 
 memories:
   state: .agentic/memories/state
