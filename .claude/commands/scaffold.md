@@ -1,0 +1,11 @@
+---
+name: scaffold
+description: Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch. Run after /spec, before /plan.
+compatibility: Claude Code, Cowork
+---
+
+# scaffold
+
+This command's workflow instructions are defined in the canonical source file below. Read it now and follow every phase and rule it defines.
+
+[WORKFLOW](.agentic/workflows/scaffold/WORKFLOW.md)

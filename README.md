@@ -54,30 +54,33 @@ Agents are defined canonically in `.agentic/agents/`. To use them on a specific 
 
 ### GitHub Copilot
 
-Use the built-in `copilot-agent-bridge` skill. It reads an agent's `IDENTITY.md` and generates a `.github/agents/{name}.agent.md` file.
+Use the built-in `copilot-bridge` skill. It reads the source file for any agent, skill, or workflow and generates a thin wrapper under `.github/`.
 
-**To generate a Copilot agent wrapper**, ask GitHub Copilot:
+**To bridge a component to Copilot**, ask GitHub Copilot:
 
-> "Use the copilot-agent-bridge skill to generate a Copilot agent for `{agent-name}`."
+> "Use the copilot-bridge skill to bridge the `{name}` agent/skill/workflow to Copilot."
 
-The generated file will look like this:
+| Artifact | Output |
+|---|---|
+| Agent | `.github/agents/{name}.agent.md` |
+| Skill | `.github/skills/{name}/SKILL.md` |
+| Workflow | `.github/prompts/{name}.prompt.md` |
 
-```markdown
----
-description: "{Role field from IDENTITY.md}"
-name: "{agent-name}"
-argument-hint: "{Activation field from IDENTITY.md}"
-tools: [...]
----
-
-[IDENTITY](.agentic/agents/{agent-name}/IDENTITY.md)
-```
-
-The file body contains only a reference back to `IDENTITY.md` — no content is copied. Changes to the agent's identity automatically apply the next time Copilot reads the file.
+No content is copied into the generated files — they reference their canonical source. Changes to the source automatically apply the next time Copilot reads the wrapper.
 
 ### Claude
 
-> **Not yet implemented.** A Claude bridge skill is planned. When available, it will follow the same pattern: read `IDENTITY.md`, produce a Claude-native configuration file that references rather than duplicates the canonical identity.
+Use the built-in `claude-bridge` skill. It reads the source file for any agent, skill, or workflow and generates a thin wrapper under `.claude/`.
+
+**To bridge a component to Claude**, ask Claude:
+
+> "Use the claude-bridge skill to bridge the `{name}` agent/skill/workflow to Claude."
+
+| Artifact | Output |
+|---|---|
+| Agent | `.claude/skills/{name}/SKILL.md` |
+| Skill | `.claude/skills/{name}/SKILL.md` |
+| Workflow | `.claude/commands/{name}.md` |
 
 ### Gemini
 

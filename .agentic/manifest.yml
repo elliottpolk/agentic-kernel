@@ -23,15 +23,23 @@ agents:
     description: Designs and scaffolds new agents. Produces a complete, registered agent directory from requirements.
     path: .agentic/agents/agent-foundry
 
-workflows: []
+workflows:
+  - name: spec
+    description: Collaborative, interactive spec creation. Guides user and agent through defining a feature spec, then hands off to /plan to produce a plan.
+    path: .agentic/workflows/spec
+    settings:
+      target_dir: docs/specs/
+  - name: scaffold
+    description: Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch. Run after /spec, before /plan.
+    path: .agentic/workflows/scaffold
 
 skills:
-  - name: copilot-agent-bridge
-    description: Generates a GitHub Copilot .agent.md wrapper from an agent's IDENTITY.md. Use to make any .agentic agent available in GitHub Copilot Chat.
-    path: .agentic/skills/copilot-agent-bridge
-  - name: claude-agent-bridge
-    description: Generates a Claude skill file from a .agentic agent's IDENTITY.md. Use to make any .agentic agent available in Claude Code or Cowork.
-    path: .agentic/skills/claude-agent-bridge
+  - name: copilot-bridge
+    description: Bridges .agentic agents, skills, and workflows into GitHub Copilot. Produces thin wrapper files referencing canonical sources. Use to make any .agentic component available in GitHub Copilot Chat.
+    path: .agentic/skills/copilot-bridge
+  - name: claude-bridge
+    description: Bridges .agentic agents, skills, and workflows into Claude Code and Cowork. Produces thin wrapper files referencing canonical sources.
+    path: .agentic/skills/claude-bridge
   - name: create-skill
     description: Create a new agent skill following the agentskills.io specification. Use when asked to create a new skill, add a skill to this workspace, or package agent instructions as a reusable, shareable skill.
     path: .agentic/skills/create-skill
