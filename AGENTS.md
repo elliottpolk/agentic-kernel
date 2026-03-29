@@ -1,3 +1,20 @@
+---
+title: Agentic Kernel
+version: "1.0"
+description: >
+  A platform-agnostic foundation for building stateful, multi-agent systems.
+  Defines the initialization protocol, session contract, and directory structure
+  that any project can adopt and extend.
+author: Elliott Polk
+organization: The Karoshi Workshop
+copyright: "Copyright (c) 2026 The Karoshi Workshop"
+license: MIT
+repository: https://github.com/elliottpolk/agentic-kernel
+scope: universal
+role: kernel
+status: stable
+---
+
 # Agentic Kernel
 
 This file **is** the agentic kernel: a platform-agnostic foundation for building stateful, multi-agent systems. It defines the initialization protocol, session contract, and directory structure that any project can adopt and extend. The `.agentic/` directory it points to holds the universal behavioral rules, decision framework, agents, workflows, skills, and memory.

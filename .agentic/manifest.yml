@@ -2,12 +2,30 @@
 # Registry of all active components in this agentic system.
 # This file is mutable. Update it when components are added, removed, or changed.
 # AGENTS.md is the immutable kernel; this file is the contextual registry.
+#
+# ADOPTERS: Fill in the `project:` section with your own details.
+# Do not change the `kernel:` section — it identifies the kernel version this manifest is paired to.
 
 version: "1.0"
 
+# Kernel identity — paired to AGENTS.md frontmatter. Treat as read-only.
+kernel:
+  title: Agentic Kernel
+  version: "1.0"
+  source: AGENTS.md
+  repository: https://github.com/elliottpolk/agentic-kernel
+  organization: The Karoshi Workshop
+  license: MIT
+
+# Project identity — fill in for your project.
 project:
   name: ""
   description: ""
+  author: ""
+  organization: ""
+  copyright: ""
+  license: ""
+  repository: ""
   context: .agentic/memories/state/project.md
 
 core:
