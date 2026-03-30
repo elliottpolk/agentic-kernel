@@ -1,6 +1,6 @@
 ---
 title: Agentic Kernel
-version: "1.0"
+version: "1.1"
 description: >
   A platform-agnostic foundation for building stateful, multi-agent systems.
   Defines the initialization protocol, session contract, and directory structure
