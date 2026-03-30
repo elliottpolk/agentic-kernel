@@ -11,7 +11,7 @@ version: "1.0"
 # Kernel identity — paired to AGENTS.md frontmatter. Treat as read-only.
 kernel:
   title: Agentic Kernel
-  version: "1.0"
+  version: "1.1"
   source: AGENTS.md
   repository: https://github.com/elliottpolk/agentic-kernel
   organization: The Karoshi Workshop
