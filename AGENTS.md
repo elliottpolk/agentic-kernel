@@ -28,8 +28,9 @@ On every session start, in order:
 1. Read `.agentic/manifest.yml` to understand the project context and what agents, workflows, and skills are available and how they relate to each other
 2. Read `.agentic/core/BEHAVIOR.md` to load your universal behavioral rules
 3. Read `.agentic/core/DECISIONS.md` to load the decision-making framework
-4. Read relevant entries from `.agentic/memories/state/` to orient to current reality
-5. Read recent entries from `.agentic/memories/history/` to pick up context from prior sessions
+4. Read `.agentic/core/MEMORY.md` to load memory conventions and platform memory hierarchy rules
+5. Read relevant entries from `.agentic/memories/state/` to orient to current reality
+6. Read recent entries from `.agentic/memories/history/` to pick up context from prior sessions
 
 ## Session Protocol
 
@@ -56,7 +57,8 @@ On every session start, in order:
 ├── manifest.yml          # Registry: active agents, workflows, skills, memories
 ├── core/                 # Universal behavioral rules (the kernel; treat as immutable)
 │   ├── BEHAVIOR.md       # Tone, response style, ADHD-friendly rules, memory protocol
-│   └── DECISIONS.md      # NEED/WANT/MAY decision framework
+│   ├── DECISIONS.md      # NEED/WANT/MAY decision framework
+│   └── MEMORY.md         # Memory field guide: naming, update rules, platform hierarchy
 ├── agents/               # Domain-specific agent identities
 │   └── {agent-name}/     #
 │       ├── IDENTITY.md   # Required: role, domain, scope, operating principles
