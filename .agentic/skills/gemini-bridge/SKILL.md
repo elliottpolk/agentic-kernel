@@ -12,6 +12,14 @@ compatibility: Gemini CLI
 Produces Gemini wrapper files from components defined in `.agentic/`. No content is
 copied from source files — all generated files reference back to their canonical source.
 
+## Workspace Initialization
+
+Before bridging specific components, ensure the workspace is natively configured for Gemini CLI:
+
+1. Check if `GEMINI.md` exists in the repository root.
+2. If it does not exist, create a symlink: `ln -s AGENTS.md GEMINI.md`.
+3. If it exists but is not a symlink to `AGENTS.md`, warn the user to resolve the conflict manually.
+
 ## Artifact Types and Output Paths
 
 | Input | Source | Output |
