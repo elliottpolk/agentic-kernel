@@ -84,7 +84,20 @@ Use the built-in `claude-bridge` skill. It reads the source file for any agent, 
 
 ### Gemini
 
-> **Not yet implemented.** A Gemini bridge skill is planned. When available, it will follow the same pattern: read `IDENTITY.md`, produce a Gemini-native configuration file that references rather than duplicates the canonical identity.
+Use the built-in `gemini-bridge` skill. It reads the source file for any agent, skill, or workflow and generates a thin wrapper under `.gemini/`.
+
+**To bridge a component to Gemini**, ask Gemini:
+
+> "Use the gemini-bridge skill to bridge the `{name}` agent/skill/workflow to Gemini."
+
+| Artifact | Output |
+|---|---|
+| Agent | `.gemini/agents/{name}.md` |
+| Skill | `.gemini/skills/{name}/SKILL.md` |
+| Workflow | `.gemini/commands/{name}.toml` |
+
+**Note**: Custom agents are an experimental feature in Gemini CLI. Ensure `"experimental": { "enableAgents": true }` is set in your `settings.json`.
+
 
 ---
 
