@@ -2,6 +2,7 @@
 name: {agent-name}
 description: {description-from-role}. Activate when {activation-from-identity}.
 compatibility: Claude Code, Cowork
+tools: [{tools-list}]
 ---
 
 # {agent-name}
