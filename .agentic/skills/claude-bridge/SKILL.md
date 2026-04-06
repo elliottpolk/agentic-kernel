@@ -17,7 +17,7 @@ The same output works across Claude Code and Cowork; no separate file is needed 
 
 | Input | Source | Output |
 |---|---|---|
-| Agent | `.agentic/agents/{name}/IDENTITY.md` | `.claude/skills/{name}/SKILL.md` |
+| Agent | `.agentic/agents/{name}/IDENTITY.md` | `.claude/agents/{name}.md` |
 | Skill | `.agentic/skills/{name}/SKILL.md` | `.claude/skills/{name}/SKILL.md` |
 | Workflow | `.agentic/workflows/{name}/WORKFLOW.md` | `.claude/commands/{name}.md` |
 
@@ -33,8 +33,8 @@ The same output works across Claude Code and Cowork; no separate file is needed 
    - **Role** field: used as the `description` frontmatter value
    - **Activation** field: appended as a trigger clause to the description
    - **Scope** field: informs tool selection via [assets/tool-selection.md](assets/tool-selection.md)
-3. Generate `.claude/skills/{name}/SKILL.md` using [assets/agent.template.md](assets/agent.template.md)
-4. Create `.claude/skills/{name}/` if it does not exist.
+3. Generate `.claude/agents/{name}.md` using [assets/agent.template.md](assets/agent.template.md)
+4. Create `.claude/agents/` if it does not exist.
 5. Confirm the output path.
 6. If `IDENTITY.md` includes a **Model** preference field, note it in the confirmation but do not embed it in the generated file.
 
