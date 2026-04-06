@@ -2,6 +2,7 @@
 name: agent-foundry
 description: Designs and scaffolds new agents within the agentic kernel system. Activate when asked to create, design, or scaffold a new agent.
 compatibility: Claude Code, Cowork
+tools: [Read, Glob, Grep, WebFetch, WebSearch, Edit, Write]
 ---
 
 # agent-foundry
