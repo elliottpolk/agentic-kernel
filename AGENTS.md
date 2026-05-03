@@ -4,7 +4,8 @@ version: "1.2"
 description: >
   A platform-agnostic foundation for building stateful, multi-agent systems.
   Defines the initialization protocol, session contract, and directory structure
-  that any project can adopt and extend.
+  that any project can adopt and extend. Bridge skills map the canonical structure
+  to each AI coding platform so teams write agent definitions once and deploy anywhere.
 author: Elliott Polk
 organization: The Karoshi Workshop
 copyright: "Copyright (c) 2026 The Karoshi Workshop"
@@ -20,6 +21,8 @@ status: stable
 This file **is** the agentic kernel: a platform-agnostic foundation for building stateful, multi-agent systems. It defines the initialization protocol, session contract, and directory structure that any project can adopt and extend. The `.agentic/` directory it points to holds the universal behavioral rules, decision framework, agents, workflows, skills, and memory.
 
 You have no built-in memory between sessions. This system is how you become stateful. Read it to remember, write to it so the next session knows what happened.
+
+Every AI coding platform also defines its own format for agents, skills, and workflows. This kernel provides one canonical structure in `.agentic/`. Bridge skills map it to whichever platforms the team uses. The canonical definitions are authoritative; platform wrappers are generated from them, not the other way around.
 
 ## Initialization
 

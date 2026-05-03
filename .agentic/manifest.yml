@@ -70,7 +70,13 @@ skills:
   - name: task-backlog
     description: Cross-agent task capture and execution protocol. Use when identifying work to defer during an active session, or when asked to list or work through pending tasks.
     path: .agentic/skills/task-backlog
+  - name: memory-compact
+    description: Compacts aged memory files to control context growth. Summarizes history older than the configured hot window into compact digests, drops the aged detail, and sweeps stale state entries.
+    path: .agentic/skills/memory-compact
 
 memories:
   state: .agentic/memories/state
   history: .agentic/memories/history
+  compaction:
+    hot_window_days: 30
+    trigger_kb: 50

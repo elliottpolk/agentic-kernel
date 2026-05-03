@@ -91,3 +91,44 @@ Agent-specific memory (`.agentic/agents/{name}/memories/`) is for how that agent
 - **Over-granularity**: One file per person or system is correct. One file per meeting or interaction is not.
 - **Stale orphans**: If a person leaves, a project ends, or a system is decommissioned, mark the file inactive or delete it. Do not let dead state persist.
 - **Mixing state and history in one file**: If you need to record both current facts and how they came to be, split them: update the state file and append to a history file.
+
+## Memory Lifecycle
+
+Memory files grow over time. Unbounded growth degrades agent performance by filling context with stale or low-signal content. To control growth, memory follows a tiered lifecycle with periodic compaction.
+
+**Full guide:** Apply the `memory-compact` skill (`.agentic/skills/memory-compact/SKILL.md`) to compact memory. The skill reads compaction settings from `manifest.yml` and handles both history and state.
+
+### Hot Window
+
+History entries within the hot window are loaded at session start in full. History older than the hot window is a candidate for compaction. Default hot window: 30 days. Configurable in `manifest.yml` under `memories.compaction.hot_window_days`.
+
+### Compaction Trigger
+
+Compaction MAY be triggered in two ways:
+
+1. **On-demand**: Invoke the `memory-compact` skill explicitly.
+2. **Threshold**: When total history file size exceeds the `trigger_kb` threshold (default: 50 KB), an interactive agent MUST note it and offer to compact. A non-interactive agent MUST record it in session history.
+
+### Digest Format
+
+When aged entries are compacted, they are replaced in-place with a compact digest block. The original detail is dropped. Git history is the archive.
+
+```markdown
+<!-- compacted: {YYYY-MM-DD} | covers: {start-date} to {end-date} -->
+## Compacted Summary ({start-date} to {end-date})
+
+**Key decisions:** {brief list of decisions made and reasoning}
+**Key facts established:** {brief list of facts}
+**Notable patterns or open items carried forward:** {brief list}
+```
+
+### State Sweep
+
+At compaction time, state files MUST also be reviewed:
+
+- Files for people who have left the org or team MUST be removed.
+- Files for systems or projects that are decommissioned MUST be removed.
+- Entries superseded by newer decisions MUST be removed.
+- Files that no longer reflect current reality MUST be updated in place.
+
+Stale state MUST NOT persist after a compaction run.

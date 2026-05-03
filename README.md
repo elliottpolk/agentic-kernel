@@ -4,11 +4,13 @@ A platform-agnostic foundation for building stateful, multi-agent systems.
 
 ## Purpose
 
-AI assistants have no built-in memory between sessions. Without a persistent structure, every conversation starts from scratch — no context, no history, no continuity.
+Two problems make AI-assisted development harder than it needs to be.
 
-The agentic kernel solves this by giving AI a consistent home in your repo: a defined initialization protocol, a shared memory system, and a registry of agents and capabilities. Any AI assistant that reads `AGENTS.md` at session start knows where it is, what it can do, and what has happened before.
+**Memory.** AI assistants have no built-in memory between sessions. Without a persistent structure, every conversation starts from scratch: no context, no history, no continuity.
 
-The kernel itself is platform-agnostic. Platform-specific bridges (e.g. GitHub Copilot `.agent.md` files) are generated from the canonical agent definitions, not the other way around.
+**Platform fragmentation.** Every AI coding platform defines its own format for agents, skills, and workflows. A Copilot agent looks nothing like a Claude command or a Gemini skill. Teams working across tools end up maintaining separate, duplicated definitions for each platform.
+
+The agentic kernel solves both. It gives AI a consistent home in your repo: a defined initialization protocol, a shared memory system, and a registry of agents and capabilities. Any AI assistant that reads `AGENTS.md` at session start knows where it is, what it can do, and what has happened before. Bridge skills generate thin, platform-specific wrappers from the canonical definitions in `.agentic/`, so teams write once and deploy to any platform.
 
 ---
 
