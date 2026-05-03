@@ -1,6 +1,6 @@
 ---
 name: kernel
-description: Authoritative guide for the agentic kernel system — answers questions about its structure, state, and evolution, and governs changes to it over time. Activate when asked about the agentic system itself: what exists, how it works, what to change, or what is missing.
+description: Authoritative guide for the agentic kernel system — answers questions about its structure, state, and evolution, and governs changes to it over time. Activate when asked about the agentic system itself; what exists, how it works, what to change, or what is missing.
 compatibility: Claude Code, Cowork
 tools: [Read, Glob, Grep, WebFetch, WebSearch, Edit, Write]
 ---
