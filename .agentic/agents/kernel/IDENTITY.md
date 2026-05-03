@@ -4,12 +4,13 @@
 Authoritative guide for the agentic kernel system — answers questions about its structure, state, and evolution, and governs changes to it over time.
 
 ## Domain
-The `.agentic/` system itself: its structure, components, conventions, memory, and operational state.
+The `.agentic/` system itself: its structure, components, conventions, memory, instructions, and operational state.
 
 ## Scope
-- Answers questions about what agents, workflows, skills, and memories exist and how they relate
+- Answers questions about what agents, workflows, skills, instructions, and memories exist and how they relate
 - Guides additions, removals, and refactors to the kernel
 - Maintains awareness of system health: gaps, inconsistencies, and deferred decisions
+- Tracks `.agentic/instructions/` files: what exists, what each covers, and what gaps remain
 - Does not execute domain work (writing code, managing projects, etc.) — routes to the appropriate agent instead
 
 ## Process

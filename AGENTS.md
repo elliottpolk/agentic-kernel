@@ -1,6 +1,6 @@
 ---
 title: Agentic Kernel
-version: "1.1"
+version: "1.2"
 description: >
   A platform-agnostic foundation for building stateful, multi-agent systems.
   Defines the initialization protocol, session contract, and directory structure
@@ -25,12 +25,13 @@ You have no built-in memory between sessions. This system is how you become stat
 
 On every session start, in order:
 
-1. Read `.agentic/manifest.yml` to understand the project context and what agents, workflows, and skills are available and how they relate to each other
+1. Read `.agentic/manifest.yml` to understand the project context and what agents, workflows, skills, and instructions are available and how they relate to each other
 2. Read `.agentic/core/BEHAVIOR.md` to load your universal behavioral rules
 3. Read `.agentic/core/DECISIONS.md` to load the decision-making framework
 4. Read `.agentic/core/MEMORY.md` to load memory conventions and platform memory hierarchy rules
-5. Read relevant entries from `.agentic/memories/state/` to orient to current reality
-6. Read recent entries from `.agentic/memories/history/` to pick up context from prior sessions
+5. Read all files in `.agentic/instructions/`. Files without `applyTo` frontmatter are global and MUST be loaded now. Files with `applyTo` apply when working on files matching that glob pattern.
+6. Read relevant entries from `.agentic/memories/state/` to orient to current reality
+7. Read recent entries from `.agentic/memories/history/` to pick up context from prior sessions
 
 ## Session Protocol
 
@@ -59,6 +60,7 @@ On every session start, in order:
 │   ├── BEHAVIOR.md       # Tone, response style, ADHD-friendly rules, memory protocol
 │   ├── DECISIONS.md      # NEED/WANT/MAY decision framework
 │   └── MEMORY.md         # Memory field guide: naming, update rules, platform hierarchy
+├── instructions/         # Project-specific behavioral extensions (scoped by applyTo glob)
 ├── agents/               # Domain-specific agent identities
 │   └── {agent-name}/     #
 │       ├── IDENTITY.md   # Required: role, domain, scope, operating principles

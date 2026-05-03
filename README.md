@@ -34,17 +34,38 @@ project:
 
 Then create `.agentic/memories/state/project.md` and seed it with the facts an AI should know at the start of every session: what the system does, its tech stack, key constraints, team conventions, and any other standing context.
 
-### 3. Add project-specific agents, workflows, and skills
+### 3. Add project-specific agents, workflows, skills, and instructions
 
 | What | Where | Notes |
 |---|---|---|
 | Agents | `.agentic/agents/{name}/` | Each needs at minimum `IDENTITY.md`, `notes/`, `memories/` |
 | Workflows | `.agentic/workflows/` | Register each in `manifest.yml` |
 | Skills | `.agentic/skills/` | Register each in `manifest.yml` |
+| Instructions | `.agentic/instructions/` | Markdown files; optional `applyTo` glob frontmatter |
 
 Register every addition in `.agentic/manifest.yml`.
 
 > Do not modify `.agentic/core/` without propagating changes back upstream to this kernel.
+
+---
+
+## Behavioral Instructions
+
+`.agentic/instructions/` holds project-specific behavioral extensions. These extend the kernel's base behavior without modifying the immutable `core/` files.
+
+**File format:** Markdown with optional YAML frontmatter.
+
+```markdown
+---
+applyTo: "src/api/**"
+---
+
+When working in the API layer, always validate inputs against the OpenAPI schema before processing.
+```
+
+**`applyTo`** is a glob pattern. When present, the instructions apply only when the agent is working on files matching that path. When absent, the instructions are global and loaded at every session start.
+
+Instructions MUST extend `core/` rules. If an instruction conflicts with a `core/` rule, the `core/` rule wins.
 
 ---
 
@@ -65,6 +86,7 @@ Use the built-in `copilot-bridge` skill. It reads the source file for any agent,
 | Agent | `.github/agents/{name}.agent.md` |
 | Skill | `.github/skills/{name}/SKILL.md` |
 | Workflow | `.github/prompts/{name}.prompt.md` |
+| Instruction | `.github/instructions/{name}.instructions.md` |
 
 No content is copied into the generated files — they reference their canonical source. Changes to the source automatically apply the next time Copilot reads the wrapper.
 
@@ -108,7 +130,9 @@ Use the built-in `gemini-bridge` skill. It reads the source file for any agent, 
 ├── manifest.yml          # Registry: active agents, workflows, skills, memories
 ├── core/                 # Universal behavioral rules (treat as immutable)
 │   ├── BEHAVIOR.md       # Tone, response style, ADHD-friendly rules, memory protocol
-│   └── DECISIONS.md      # NEED/WANT/MAY decision framework
+│   ├── DECISIONS.md      # NEED/WANT/MAY decision framework
+│   └── MEMORY.md         # Memory field guide: naming, update rules, platform hierarchy
+├── instructions/         # Project-specific behavioral extensions (scoped by applyTo glob)
 ├── agents/               # Domain-specific agent identities
 │   └── {agent-name}/
 │       ├── IDENTITY.md   # Required: role, domain, scope, operating principles

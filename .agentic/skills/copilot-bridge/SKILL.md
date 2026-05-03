@@ -19,11 +19,12 @@ is copied from source files — all generated files reference back to their cano
 | Agent | `.agentic/agents/{name}/IDENTITY.md` | `.github/agents/{name}.agent.md` |
 | Skill | `.agentic/skills/{name}/SKILL.md` | `.github/skills/{name}/SKILL.md` |
 | Workflow | `.agentic/workflows/{name}/WORKFLOW.md` | `.github/prompts/{name}.prompt.md` |
+| Instruction | `.agentic/instructions/{name}.md` | `.github/instructions/{name}.instructions.md` |
 
 ## Inputs
 
-- **Type**: one of `agent`, `skill`, or `workflow`
-- **Name**: the directory name under the relevant `.agentic/` subdirectory
+- **Type**: one of `agent`, `skill`, `workflow`, or `instruction`
+- **Name**: the file or directory name under the relevant `.agentic/` subdirectory
 
 ## Process: Agent
 
@@ -52,6 +53,16 @@ is copied from source files — all generated files reference back to their cano
    - Check the workflow's frontmatter for an `agent:` field. If present, use its value.
    - If absent, default to `agent: agent`.
 4. Create `.github/prompts/` if it does not exist.
+5. Confirm the output path.
+
+## Process: Instruction
+
+1. Verify `.agentic/instructions/{name}.md` exists. If not, stop and report.
+2. Read the file and extract the `applyTo` frontmatter field if present.
+3. Generate `.github/instructions/{name}.instructions.md` using [assets/instructions.template.md](assets/instructions.template.md)
+   - If `applyTo` is present, include it verbatim in the output frontmatter. It is functional: Copilot uses it to scope when the file is injected. Do not alter or omit it.
+   - If `applyTo` is absent, omit the frontmatter block entirely.
+4. Create `.github/instructions/` if it does not exist.
 5. Confirm the output path.
 
 ## Rules

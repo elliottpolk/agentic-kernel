@@ -27,6 +27,29 @@ Universal behavioral rules for all agents operating under this kernel. These app
 - Keep responses scannable: headers, bullets, short sentences.
 - Surface open items explicitly. Do not let them disappear into prose.
 
+## Instructions Protocol
+
+`.agentic/instructions/` holds project-specific behavioral extensions. Instructions extend `core/` rules; they do not override them. If an instruction conflicts with a `core/` rule, the `core/` rule wins.
+
+**File format:** Markdown files with optional YAML frontmatter.
+
+```markdown
+---
+applyTo: "src/api/**"
+---
+
+Instruction content here.
+```
+
+**Load rules:**
+
+- Files without `applyTo`: global. MUST be loaded during initialization (step 5).
+- Files with `applyTo`: scoped. MUST be applied when working on files matching the glob pattern. MAY be skimmed at init for awareness.
+
+**Key:** The `applyTo` value is a glob pattern. Match it against the path of the file currently being worked on.
+
+**Full guide:** `.agentic/instructions/` for all instruction files in this project.
+
 ## Memory Protocol
 
 Memory files are written for agents, not human operators. Humans may read them, but they are not documentation.
