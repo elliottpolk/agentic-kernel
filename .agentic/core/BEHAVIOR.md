@@ -67,4 +67,6 @@ Memory files are written for agents, not human operators. Humans may read them, 
 - **Reads:** MUST read from the appropriate `.agentic/` memory location first (shared: `.agentic/memories/`; agent-specific: `.agentic/agents/{name}/memories/`). Vendor memory MAY be read as a supplement. If the two conflict, `.agentic/` is ground truth.
 - **Writes:** MUST write to the appropriate `.agentic/` memory location. Writing to the vendor store in addition is permitted. The vendor store MUST NOT substitute for either agnostic memory location. If only one write is possible, write to the `.agentic/` location.
 
-**Full guide:** `.agentic/core/MEMORY.md` covers naming conventions, update rules, anti-patterns, platform memory hierarchy, and history format.
+**Compaction:** Memory files MUST NOT grow without bound. When total history file size exceeds the configured threshold, or when explicitly asked, invoke the `memory-compact` skill (`.agentic/skills/memory-compact/SKILL.md`). In an interactive session, MUST note when the threshold is exceeded and offer to compact. In a non-interactive session, MUST record it in session history. Full lifecycle rules are in `MEMORY.md` and the skill itself.
+
+**Full guide:** `.agentic/core/MEMORY.md` covers naming conventions, update rules, anti-patterns, platform memory hierarchy, history format, and the full memory lifecycle.

@@ -11,7 +11,7 @@ version: "1.0"
 # Kernel identity — paired to AGENTS.md frontmatter. Treat as read-only.
 kernel:
   title: Agentic Kernel
-  version: "1.2"
+  version: "1.3"
   source: AGENTS.md
   repository: https://github.com/elliottpolk/agentic-kernel
   organization: The Karoshi Workshop
@@ -64,13 +64,22 @@ skills:
   - name: gemini-bridge
     description: Bridges .agentic agents, skills, and workflows into Gemini CLI. Produces thin wrapper files referencing canonical sources. Use to make any .agentic component available in Gemini CLI.
     path: .agentic/skills/gemini-bridge
+  - name: codex-bridge
+    description: Bridges .agentic agents, skills, and workflows into OpenAI Codex. Produces thin wrapper files that reference canonical sources. Use to make any .agentic component available in Codex.
+    path: .agentic/skills/codex-bridge
   - name: create-skill
     description: Create a new agent skill following the agentskills.io specification. Use when asked to create a new skill, add a skill to this workspace, or package agent instructions as a reusable, shareable skill.
     path: .agentic/skills/create-skill
   - name: task-backlog
     description: Cross-agent task capture and execution protocol. Use when identifying work to defer during an active session, or when asked to list or work through pending tasks.
     path: .agentic/skills/task-backlog
+  - name: memory-compact
+    description: Compacts aged memory files to control context growth. Summarizes history older than the configured hot window into compact digests, drops the aged detail, and sweeps stale state entries.
+    path: .agentic/skills/memory-compact
 
 memories:
   state: .agentic/memories/state
   history: .agentic/memories/history
+  compaction:
+    hot_window_days: 30
+    trigger_kb: 50
