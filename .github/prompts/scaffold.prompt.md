@@ -1,5 +1,5 @@
 ---
-description: "Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch. Run after /spec, before /plan."
+description: "Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch."
 name: "scaffold"
 agent: agent
 ---

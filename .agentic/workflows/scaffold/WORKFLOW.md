@@ -2,8 +2,8 @@
 name: scaffold
 description: >-
   Materializes the Project Structure from a confirmed spec into real files and
-  directories on the feature branch. Reads the spec, confirms the scaffold plan
-  with the user, executes, and commits. Run after /spec, before /plan.
+   directories on the feature branch. Reads the spec, confirms the scaffold plan
+   with the user, executes, and commits.
 invocation: /scaffold
 ---
 
@@ -71,9 +71,7 @@ on the feature branch. Nothing is created without user confirmation of the plan 
 
 1. Stage all created files.
 2. Commit with message: `scaffold: {feature-name}`
-3. Confirm: "Scaffold committed on `feature/{slug}`. Ready for `/plan`."
-4. Instruct the user to invoke `/plan` with `{spec-path}` as the input brief.
-   If the platform supports it, invoke `/plan` directly.
+3. Confirm: "Scaffold committed on `feature/{slug}`. Ready for implementation."
 
 ## Rules
 

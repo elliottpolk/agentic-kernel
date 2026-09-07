@@ -11,7 +11,7 @@ version: "1.0"
 # Kernel identity — paired to AGENTS.md frontmatter. Treat as read-only.
 kernel:
   title: Agentic Kernel
-  version: "1.3"
+  version: "1.4"
   source: AGENTS.md
   repository: https://github.com/elliottpolk/agentic-kernel
   organization: The Karoshi Workshop
@@ -43,15 +43,19 @@ agents:
   - name: agent-foundry
     description: Designs and scaffolds new agents. Produces a complete, registered agent directory from requirements.
     path: .agentic/agents/agent-foundry
+  - name: architect
+    description: Defines lightweight architecture intent and reviews proposed work for conformance to that intent.
+    path: .agentic/agents/architect
+  - name: engineer
+    description: Converts confirmed intent into buildable technical specifications, implementation, and recorded validation evidence.
+    path: .agentic/agents/engineer
 
 workflows:
-  - name: spec
-    description: Collaborative, interactive spec creation. Guides user and agent through defining a feature spec, then hands off to /plan to produce a plan.
-    path: .agentic/workflows/spec
-    settings:
-      target_dir: docs/specs/
+  - name: riff
+    description: Switches the conversation into discussion-first ideation mode and defers artifacts until the user explicitly asks to capture something.
+    path: .agentic/workflows/riff
   - name: scaffold
-    description: Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch. Run after /spec, before /plan.
+    description: Materializes the Project Structure from a confirmed spec into real files and directories on the feature branch.
     path: .agentic/workflows/scaffold
 
 skills:
