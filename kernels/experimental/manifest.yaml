@@ -1,0 +1,72 @@
+# Authoritative composition record for this kernel installation.
+# A component's presence on disk does not activate it; declaration here does.
+
+version: 1.0.0
+
+# Must identify the same kernel as the adjacent AGENTS.md bootloader.
+kernel:
+  name: experimental
+  version: 0.1.0
+
+# Active components, grouped by kind. Each entry names a component directory
+# under components/{kind}/. Components load in the order declared. Component
+# metadata (activation, dependencies, handoffs) lives in each component's own
+# contract file; this manifest only records what is active and who provides it.
+# provider is "kernel" for components shipped with the kernel, "project" for
+# components authored in this repository. description gives the agent enough to
+# know what a component is for without opening its contract file.
+components:
+
+  # Behavioral extensions, scoped by applyTo glob in each file's frontmatter.
+  # A file without applyTo is never auto-loaded.
+  instructions: []
+
+  # Capabilities following the Agent Skills standard.
+  skills: []
+
+  # Agent identities.
+  personas:
+    - name: cartographer
+      version: 0.1.0
+      provider: kernel
+      description: Maps the project's structure and team dynamics into embedded memory, maintaining it as the project evolves.
+
+    - name: architect
+      version: 0.1.0
+      provider: kernel
+      description: Designs systems, evaluates structural decisions, and maintains architectural coherence.
+
+    - name: project-manager
+      version: 0.1.0
+      provider: kernel
+      description: Coordinates work across personas, tracks progress, and sequences multi-step efforts.
+
+    - name: engineer
+      version: 0.1.0
+      provider: kernel
+      description: Implements, refactors, and debugs code within the repository's constraints.
+
+    - name: tester
+      version: 0.1.0
+      provider: kernel
+      description: Verifies behavior, writes and runs tests, and validates changes against intent.
+
+    - name: historian
+      version: 0.1.0
+      provider: kernel
+      description: Captures agent sessions into embedded memory and curates it over time so agents stay informed of evolving project and team patterns.
+
+  # Sequences of actions for specific tasks.
+  workflows:
+    - name: seed
+      version: 0.1.0
+      provider: kernel
+      description: Stubs out a new repo element (code file, document, or other artifact) with the appropriate structure, metadata, and licensing.
+
+    - name: riff
+      version: 0.1.0
+      provider: kernel
+      description: Explores an idea through discussion first, deferring plans and artifacts until the user explicitly asks to capture something.
+
+  # Bundles of related components.
+  plugins: []

@@ -22,7 +22,7 @@ The `.agentic/` directory adjacent to this file is the canonical kernel root. Al
 
 On every session start, complete these steps in order before taking any action:
 
-1. Read `manifest.yaml` to establish the active composition: which components are installed, how they relate, and what memory is available
+1. Read `manifest.yaml` to establish the active composition: which components are installed and how they relate
 2. Read the kernel contracts in `core/`:
    - `core/BEHAVIOR.md` for universal behavioral rules
    - `core/DECISIONS.md` for the decision-making framework
