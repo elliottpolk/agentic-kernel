@@ -43,7 +43,7 @@ license: {license}
 ---
 ```
 
-`version` identifies the bootloader contract. `kernel` identifies the target kernel by its stable canonical name and MUST NOT be inferred from the bootloader title, body, or directory layout. `manifest.yml` MUST identify the same target kernel and a compatible kernel version; the exact compatibility rules belong in the implementation specification.
+`version` identifies the bootloader contract. `kernel` identifies the target kernel by its stable canonical name and MUST NOT be inferred from the bootloader title, body, or directory layout. `manifest.yaml` MUST identify the same target kernel and a compatible kernel version; the exact compatibility rules belong in the implementation specification.
 
 ## Required Content
 
@@ -57,7 +57,7 @@ The root instruction MUST explain the target kernel's purpose and establish its 
 
 The `## Initialization Protocol` section MUST define the ordered work an agent completes before taking action:
 
-1. Read `manifest.yml` to establish the repository's installed composition and relationships.
+1. Read `manifest.yaml` to establish the repository's installed composition and relationships.
 2. Read the kernel behavior, decision, and memory contracts in `core/`.
 3. Load applicable repository instructions.
 4. Read relevant state and recent history from `memories/`.
@@ -74,4 +74,4 @@ The `## Session Protocol` section MUST define the responsibilities that follow i
 
 ## Structure Contract
 
-The `## Structure Contract` section MUST identify `.agentic/` as the canonical repository-local kernel root and describe the responsibilities of `manifest.yml`, `core/`, `components/`, and `memories/`. It MUST distinguish kernel-owned contracts from repository-specific composition and context. It MUST NOT prescribe provider invocation, delegation, permission, or precedence behavior. The exact directory tree and file schemas belong in the implementation specification.
+The `## Structure Contract` section MUST identify `.agentic/` as the canonical repository-local kernel root and describe the responsibilities of `manifest.yaml`, `core/`, `components/`, and `memories/`. It MUST distinguish kernel-owned contracts from repository-specific composition and context. It MUST NOT prescribe provider invocation, delegation, permission, or precedence behavior. The exact directory tree and file schemas belong in the implementation specification.
