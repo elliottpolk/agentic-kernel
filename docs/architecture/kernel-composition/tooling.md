@@ -17,4 +17,4 @@ change_log:
 
 # Tooling
 
-intent
+Provide a local, repeatable lifecycle for installing, inspecting, validating, and synchronizing a kernel composition without redefining its architectural ownership.

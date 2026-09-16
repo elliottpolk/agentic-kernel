@@ -17,4 +17,4 @@ change_log:
 
 # Core
 
-intent
+Define the behavior, decision, and memory contracts that give every adopted kernel a consistent operating foundation without owning project specific capabilities.

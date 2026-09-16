@@ -46,6 +46,10 @@ AI assistants need persistent, platform agnostic project context between session
 
 The kernel will provide a versioned, manifest driven system for defining and preserving portable agent capabilities and context within a repository. It separates kernel owned contracts from composable capabilities, records explicit composition, preserves context across sessions, and realizes that context on supported platforms.
 
+The root `AGENTS.md` is the canonical bootloader. It begins the initialization protocol by directing an agent to the manifest, core contracts, applicable instructions, and relevant repository memory.
+
+The repository root `.agentic/` directory is the canonical kernel root. It is the primary location for `manifest.yml`, `core/`, `components/`, and `memories/`; root `AGENTS.md` begins initialization by directing an agent to that structure.
+
 `core/` is kernel space. It contains the kernel's behavior, decision, and memory contracts, plus provider adapters. `components/` contains a platform agnostic representation of composable capabilities. It can express established cross platform patterns, such as skills and plugins, alongside capabilities without a shared standard, including agent personas, workflows, and custom instructions. Components can reference one another to describe composition and relationships: a plugin can reference several skills, and a persona can declare a handoff to another persona.
 
 `manifest.yml` is the authoritative composition record. It declares active components and their dependencies. Provider bindings are optional and used only when a platform cannot directly load the canonical structure or benefits from a native entry point. A component's presence on disk does not activate it. This decouples kernel composition from provider specific discovery conventions.
@@ -56,7 +60,7 @@ Adapters transform active components and relevant graph context into the native 
 
 ## Desired Outcome
 
-A repository can define, adopt, activate, and evolve its agent capabilities and long lived context once in a portable, inspectable form. A canonical bootloader and manifest identify the active composition, its relationships, and the repository bounded memory relevant to a session.
+A repository can define, adopt, activate, and evolve its agent capabilities and long lived context once in a portable, inspectable form. A root `AGENTS.md` bootloader starts the initialization protocol, and a manifest identifies the active composition, its relationships, and the repository bounded memory relevant to a session.
 
 Platforms that support common conventions consume the canonical structure directly. Where native realization adds value or direct loading is unavailable, optional bindings and adapters express the same composition in platform specific forms. The canonical model remains the source of truth, so teams can use provider capabilities without duplicating definitions or allowing their persistent context to drift.
 
@@ -64,7 +68,7 @@ Platforms that support common conventions consume the canonical structure direct
 
 ### In Scope
 
- - A canonical bootloader, kernel contracts, component representation, and manifest that define an active agent composition and its dependencies.
+ - A root `AGENTS.md` bootloader, kernel contracts, component representation, and manifest that define an active agent composition and its dependencies.
  - Portable representation of agent personas, skills, plugins, workflows, instructions, and references among them.
  - Repository bounded, source controlled graph memory for project context and agent or work memory, including provenance and references to source material.
  - Direct use of the canonical structure by platforms that support its conventions.
@@ -80,7 +84,8 @@ Platforms that support common conventions consume the canonical structure direct
 
 ## Architectural Constraints
 
- - The canonical bootloader, `core/`, `components/`, manifest, and embedded memory graph MUST remain provider independent and repository local.
+ - The root `AGENTS.md` bootloader, `core/`, `components/`, manifest, and embedded memory graph MUST remain provider independent and repository local.
+- The repository root `.agentic/` directory MUST be the canonical location for `manifest.yml`, `core/`, `components/`, and `memories/`.
 - The manifest MUST be the authoritative record of the kernel composition it manages, including component relationships and dependencies. Providers MAY discover canonical artifacts according to their native conventions.
  - Components MUST have stable identities and explicit references. A component reference MUST remain meaningful independently of any provider's directory layout or invocation model.
  - Canonical component content MUST remain portable. Provider specific syntax, metadata, and behavior belong in optional bindings or adapters.

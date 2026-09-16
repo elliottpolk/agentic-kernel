@@ -17,4 +17,4 @@ change_log:
 
 # Adapters
 
-intent
+Realize canonical components and relevant context through native provider capabilities when direct loading is unavailable or insufficient, without becoming an independent source of truth.

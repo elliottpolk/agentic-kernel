@@ -17,4 +17,4 @@ change_log:
 
 # Components
 
-intent
+Provide a portable representation for agent capabilities and their relationships, accommodating both cross platform standards and capabilities without a shared standard.

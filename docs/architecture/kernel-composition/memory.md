@@ -17,4 +17,4 @@ change_log:
 
 # Memory
 
-intent
+Preserve concise, repository bounded context across sessions as an attributable graph of project facts and agent or work memory.

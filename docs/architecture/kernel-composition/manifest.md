@@ -17,4 +17,4 @@ change_log:
 
 # Manifest
 
-intent
+Declare the kernel composition a repository adopts or maintains, including its active components, relationships, and dependencies, without prescribing provider discovery.
