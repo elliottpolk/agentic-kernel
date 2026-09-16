@@ -74,4 +74,4 @@ The `## Session Protocol` section MUST define the responsibilities that follow i
 
 ## Structure Contract
 
-The `## Structure Contract` section MUST identify `.agentic/` as the canonical repository-local kernel root and describe the responsibilities of `manifest.yml`, `core/`, `components/`, `instructions/`, and `memories/`. It MUST distinguish kernel-owned contracts from repository-specific composition and context. It MUST NOT prescribe provider invocation, delegation, permission, or precedence behavior. The exact directory tree and file schemas belong in the implementation specification.
+The `## Structure Contract` section MUST identify `.agentic/` as the canonical repository-local kernel root and describe the responsibilities of `manifest.yml`, `core/`, `components/`, and `memories/`. It MUST distinguish kernel-owned contracts from repository-specific composition and context. It MUST NOT prescribe provider invocation, delegation, permission, or precedence behavior. The exact directory tree and file schemas belong in the implementation specification.
