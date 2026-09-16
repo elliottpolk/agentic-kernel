@@ -80,6 +80,14 @@ Platforms that support common conventions consume the canonical structure direct
 
 ## Architectural Constraints
 
+ - The canonical bootloader, `core/`, `components/`, manifest, and embedded memory graph MUST remain provider independent and repository local.
+- The manifest MUST be the authoritative record of the kernel composition it manages, including component relationships and dependencies. Providers MAY discover canonical artifacts according to their native conventions.
+ - Components MUST have stable identities and explicit references. A component reference MUST remain meaningful independently of any provider's directory layout or invocation model.
+ - Canonical component content MUST remain portable. Provider specific syntax, metadata, and behavior belong in optional bindings or adapters.
+ - An adapter MUST derive provider artifacts from the active canonical composition. It MUST NOT become an independent source of truth or require unsupported providers to emulate another provider's behavior.
+ - Memory MUST remain concise, source controlled, attributable, and bounded by the repository's access boundary. It MUST exclude secrets and information with more restrictive access requirements.
+ - The kernel MUST preserve existing external standards where they apply and MAY extend the canonical model only for capabilities that those standards do not define.
+
 ## References
 
 - [AGENTS.md](https://agents.md/)
