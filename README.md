@@ -33,7 +33,7 @@ The agentic kernel is an attempt at solving both. It gives AI a consistent home 
 | Kernel | Purpose | Status |
 |---|---|---|
 | [project](kernels/project/) | Software development (applications, services, libraries, systems) in a source-controlled repository, operated through a coding agent | canary |
-| [journal](kernels/journal/) | Personal journal and knowledge management | stable |
+| [journal](kernels/journal/) | Personal journal and knowledge management | legacy |
 | [legacy](kernels/legacy/) | The original `.agentic/` layout, kept for reference while the refactor completes | legacy |
 
 ### Components
