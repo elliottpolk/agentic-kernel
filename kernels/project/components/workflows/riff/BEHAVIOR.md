@@ -9,7 +9,7 @@ invocation: /riff
 
 Lightweight interaction-mode workflow for thinking out loud with the current agent.
 
-Use it when the user wants to explore, compare, pressure-test, or shape an idea without turning the conversation into planning or execution.
+Use it when the user wants to context build, explore, compare, pressure-test, or shape an idea without turning the conversation into planning or execution.
 
 ## Inputs
 

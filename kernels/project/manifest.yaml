@@ -5,7 +5,7 @@ version: 1.0.0
 
 # Must identify the same kernel as the adjacent AGENTS.md bootloader.
 kernel:
-  name: experimental
+  name: project
   version: 0.1.0
 
 # Active components, grouped by kind. Each entry names a component directory
